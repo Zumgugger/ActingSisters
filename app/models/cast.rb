@@ -10,4 +10,5 @@
 
 class Cast < ActiveRecord::Base
   has_many :entrances
+  has_many :allocations
 end

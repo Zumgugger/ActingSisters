@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  role_id: 
+  actor_id: 
+  cast_id: 
+
+two:
+  role_id: 
+  actor_id: 
+  cast_id: 
