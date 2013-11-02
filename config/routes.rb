@@ -3,6 +3,7 @@ ActingSisters::Application.routes.draw do
   get "main/index"
   get "scenes/index", as: :scenes
   get "scenes/show"
+  post 'scenes/import' => 'scenes#import'
   get "scenes" => 'scenes#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

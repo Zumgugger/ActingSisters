@@ -5,8 +5,6 @@
 
 $ ->
   $(".listdiv").mouseover ->
-    $(".listdiv").not(this).each ->
-
     $(this).animate(height:60, width:60)
     
 $ ->

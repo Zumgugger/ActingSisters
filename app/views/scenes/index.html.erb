@@ -10,6 +10,16 @@
 <%end%>
 </div>
 
+<div>
+	<h2>
+		Szenen aus Excel Datei importieren
+	</h2>
+	<%= form_tag scenes_import_path, multipart: true do %>
+	  <%= file_field_tag :file%>
+	  <%= submit_tag "Importieren"%>
+	<%end%>
+</div>
+
 <footer>
 	<%= link_to "Szenen administrieren", admin_scenes_path%>
 </footer>

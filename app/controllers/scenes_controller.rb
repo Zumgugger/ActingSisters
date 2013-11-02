@@ -10,6 +10,11 @@ class ScenesController < ApplicationController
 
   def show
   end
+  
+  def import
+    Scene.import(params[:file])
+    redirect_to root_url
+  end
 end
 
 
