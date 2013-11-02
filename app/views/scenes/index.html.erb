@@ -5,10 +5,14 @@
 <div>
 <% @scenes.each do |scene|%>
 <% @class= scene.scenery%>
+<%= link_to scene_show_path(scene.id) do  %>
+
 <div class='listdiv <%=@class%>'><%= scene.number %></div>
 
 <%end%>
+<%end%>
 </div>
+
 
 <div id="import">
 	<h2>

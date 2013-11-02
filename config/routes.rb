@@ -1,6 +1,7 @@
 ActingSisters::Application.routes.draw do
   get "roles/index", as: :roles
   get "roles/show"
+  get "role/:id" => 'roles#show', as: :role_show
   get "roles" => 'roles#index'
   root 'main#index'
   get "main/index"
@@ -8,6 +9,7 @@ ActingSisters::Application.routes.draw do
   get "scenes/show"
   post 'scenes/import' => 'scenes#import'
   get "scenes" => 'scenes#index'
+  get "scene/:id" => 'scenes#show', as: :scene_show
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

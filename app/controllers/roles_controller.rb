@@ -1,19 +1,19 @@
 class RolesController < ApplicationController
-
-      before_action :set_role, only: [:show]
+  
+  before_action :set_role, only: [:show]
       
   def index
     @columns = Role.column_names[0..-3]
-    @roles = Role.all
-    @list = []
-    @roles.each do |r|
-      @list << r.name
-      end
-  end
+    @roles = Role.all.sort_by {|obj| obj.name}
+    @scenes = Scene.all
+    
+    
+  end #index
 
 
   def show
-  end
+    set_role
+  end #show
 
 
 
@@ -23,6 +23,6 @@ private
     # Use callbacks to share common setup or constraints between actions.
     def set_role
       @role = Role.find(params[:id])
-    end
+    end #set_role
     
 end #class

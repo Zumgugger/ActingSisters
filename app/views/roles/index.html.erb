@@ -1,5 +1,34 @@
 <h1>Alle Rollen des Musicals</h1>
 <p>Klicken, um Infos zu erhalten</p>
 
+<div>
+  <table>
+  	<thead>
+  		<th>Rolle</th>
+  		<% @scenes.each do |scene|%>
+  		<th><%=scene.number%></th>
+  		<%end%>
+  	</thead>
+  	
+  		
+  	  
+      <% @roles.each do |role|%>
+      <tr>
+      
+      <td><%= link_to role_show_path(role.id) do  %>
+     
 
+      <%= role.name %> </td>
+       <td><% role.scenes.each do |s|%>
+       	   <%= link_to s.name, scene_show_path(s.id)%>
+       	   <%end%>
+       </td>
+       
+       <%end%>	  
+    </tr>
+    <%end%>
+
+  </table>
+  
+</div>
 

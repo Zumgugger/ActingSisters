@@ -10,5 +10,9 @@
 
 class Role < ActiveRecord::Base
   has_many :entrances
+  has_many :scenes, :through => :entrances
+  has_many :casts, :through => :entrances
   has_many :allocations
+  has_many :actors, :through => :allocations
+  
 end

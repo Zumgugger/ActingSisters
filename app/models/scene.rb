@@ -11,6 +11,8 @@
 
 class Scene < ActiveRecord::Base
   has_many :entrances
+  has_many :roles, :through => :entrances
+  has_many :casts, :through => :entrances
   
     def name
     self.number

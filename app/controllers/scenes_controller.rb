@@ -10,6 +10,7 @@ class ScenesController < ApplicationController
   end
 
   def show
+    set_scene
   end
   
   def import
