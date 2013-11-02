@@ -1,0 +1,24 @@
+// Place all the styles related to the scenes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.a {
+  background-color: red;
+}
+
+.b {
+  background-color: grey;
+  
+}
+
+.listdiv {
+  float:left;
+  width: 40px;
+  height: 40px;
+  border: solid black 2px;
+  margin:10px;
+  padding:7px;
+  border-radius: 10%; 
+}
+

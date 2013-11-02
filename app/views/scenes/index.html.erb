@@ -1,0 +1,15 @@
+<h1>Liste aller Szenen vom Musical</h1>
+<p>Klicken für weitere Infos</p>
+
+
+<div>
+<% @scenes.each do |scene|%>
+<% @class= scene.scenery%>
+<div class='listdiv <%=@class%>'><%= scene.number %></div>
+
+<%end%>
+</div>
+
+<footer>
+	<%= link_to "Szenen administrieren", admin_scenes_path%>
+</footer>

@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: entrances
+#
+#  id          :integer          not null, primary key
+#  cast_id     :integer
+#  scene_id    :integer
+#  role_id     :integer
+#  speaking?   :boolean
+#  singing?    :boolean
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cast_id: 
+  scene_id: 
+  role_id: 
+  speaking?boolean: MyString
+  singing?: false
+  description: MyText
+
+two:
+  cast_id: 
+  scene_id: 
+  role_id: 
+  speaking?boolean: MyString
+  singing?: false
+  description: MyText
