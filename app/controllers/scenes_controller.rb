@@ -1,6 +1,7 @@
 class ScenesController < ApplicationController
   before_action :set_scene, only: [:show]
   def index
+    @columns = Scene.column_names[0..-3]
     @scenes = Scene.all
     @list = []
     @scenes.each do |s|

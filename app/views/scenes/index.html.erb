@@ -10,10 +10,11 @@
 <%end%>
 </div>
 
-<div>
+<div id="import">
 	<h2>
 		Szenen aus Excel Datei importieren
 	</h2>
+	<p>Spalten: <%= @columns%></p>
 	<%= form_tag scenes_import_path, multipart: true do %>
 	  <%= file_field_tag :file%>
 	  <%= submit_tag "Importieren"%>

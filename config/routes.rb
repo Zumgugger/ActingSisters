@@ -1,4 +1,7 @@
 ActingSisters::Application.routes.draw do
+  get "roles/index", as: :roles
+  get "roles/show"
+  get "roles" => 'roles#index'
   root 'main#index'
   get "main/index"
   get "scenes/index", as: :scenes
