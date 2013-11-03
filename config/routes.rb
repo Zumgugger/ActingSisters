@@ -10,6 +10,8 @@ ActingSisters::Application.routes.draw do
   get "actor/:id" => 'actors#show', as: :actor_show
   get "actors/show"
   
+  post 'actors/import' => 'actors#import'
+  
   #Rollen
   get "roles/index", as: :roles
   get "roles" => 'roles#index'

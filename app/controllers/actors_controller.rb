@@ -16,6 +16,11 @@ class ActorsController < ApplicationController
     
   end #show
 
+  def import
+    Actor.import(params[:file])
+    redirect_to actors_path
+  end
+
 
 
 
