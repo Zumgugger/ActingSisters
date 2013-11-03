@@ -12,9 +12,15 @@
 
 <div id="container">
 	
-	<h1><%=link_to "Acting Sisters", root_path%></h1>
-<p>Musical der Sekstufe1 Wichtrach</p>
-<%= yield %>
+	
+	<%= link_to root_path do %>
+	<div id="logodiv" class="linkdiv maindiv">	
+	<h1>Acting Sisters</h1>
+    <p>Musical der Sekstufe1 Wichtrach</p>
+    </div>
+    <%end%>
+    <%= yield %>
+
 </div>
 
 </body>

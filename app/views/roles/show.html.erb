@@ -1,2 +1,17 @@
-<h1>Roles#show</h1>
-<p>Find me in app/views/roles/show.html.erb</p>
+<h1>Rolle <%=@role.name%></h1>
+
+<% @casts.each do |cast|%>
+<div>
+	<h2><%= cast.name %></h2>
+	
+	<p>
+			
+		<% @role.allocations.each do |a| %>
+		<% actor =  a.actor%>
+		<%= link_to actor.name, actor_show_path(actor.id) if a.cast.name == cast.name %>
+		<%end%>
+		
+	</p>
+</div>
+<%end%>
+

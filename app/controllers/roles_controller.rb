@@ -13,6 +13,8 @@ class RolesController < ApplicationController
 
   def show
     set_role
+    @casts = Cast.all
+    
   end #show
 
 

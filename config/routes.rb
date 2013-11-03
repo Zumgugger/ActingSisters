@@ -1,15 +1,34 @@
 ActingSisters::Application.routes.draw do
-  get "roles/index", as: :roles
-  get "roles/show"
-  get "role/:id" => 'roles#show', as: :role_show
-  get "roles" => 'roles#index'
   root 'main#index'
   get "main/index"
+  
+  
+  #Schauspieler
+  get "actors/index", as: :actors
+  get "actors" => 'actors#index'
+  
+  get "actor/:id" => 'actors#show', as: :actor_show
+  get "actors/show"
+  
+  #Rollen
+  get "roles/index", as: :roles
+  get "roles" => 'roles#index'
+  
+  get "role/:id" => 'roles#show', as: :role_show
+  get "roles/show"
+  
+  
+  
+  #Szenen
   get "scenes/index", as: :scenes
-  get "scenes/show"
-  post 'scenes/import' => 'scenes#import'
   get "scenes" => 'scenes#index'
+    
   get "scene/:id" => 'scenes#show', as: :scene_show
+  get "scenes/show"
+  
+  post 'scenes/import' => 'scenes#import'
+  
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

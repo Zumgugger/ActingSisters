@@ -1,0 +1,27 @@
+<div class="maindiv">
+	<h1>Alle Schauspieler des Musicals</h1>
+	<p>Klicken, um Infos zu erhalten</p>
+</div>
+
+<div class="maindiv">
+	<table>
+  		<thead>
+  			<th>Schauspieler</th>
+  			<th>Spielt folgende Rollen</th>
+		</thead>
+  	
+  		<% @actors.each do |actor|%>
+		<tr>
+			<td><%= link_to actor_show_path(actor.id) do  %>
+     			<%= actor.name %>
+     		</td>
+			<td><% actor.allocations.each do |a|%>
+				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_show_path(a.id)%>
+				<br>
+				<%end%>
+			</td>
+			<%end%>	  
+		</tr>
+		<%end%>
+	</table>
+</div>

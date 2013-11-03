@@ -1,8 +1,27 @@
-<h1>Szene <%= @scene.number%></h1>
+<div class="maindiv">
+	<h1>
+		
+		<%=link_to "<", scene_show_path(@scene.id - 1) if @scene.id > 1%>
+		Szene <%= @scene.number%> 
+		<%=link_to ">", scene_show_path(@scene.id + 1) if @scene.id < @end%>
+		</h1>
+	
+</div>
 
-<h2>Rollen auf der Bühne</h2>
-<% @scene.entrances.each do |entrance| %>
-<%= entrance.role.name %>
+<div class="maindiv">
+	<h2>Rollen auf der Bühne</h2>
+	<% @scene.entrances.each do |entrance| %>
+		<%= link_to entrance.role.name, role_show_path(entrance.role.id) %>
+	<%end%>
+	<h2>Rollen mit Text</h2>
+	<% @scene.entrances.each do |entrance| %>
+		<%= link_to entrance.role.name, role_show_path(entrance.role.id) if entrance.speaking?%>
+	<%end%>
+	<h2>Rollen mit Gesang</h2>
+	<% @scene.entrances.each do |entrance| %>
+		<%= link_to entrance.role.name, role_show_path(entrance.role.id) if entrance.singing?%>
+	<%end%>
+</div>
 
-<%end%>
+
 

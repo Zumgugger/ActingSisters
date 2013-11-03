@@ -1,8 +1,11 @@
-<h1>Liste aller Szenen vom Musical</h1>
-<p>Klicken für weitere Infos</p>
+
+<div class="maindiv">	
+  <h1>Liste aller Szenen vom Musical</h1>
+  <p>Klicken für weitere Infos</p>
+</div>
 
 
-<div>
+<div class="maindiv">
 <% @scenes.each do |scene|%>
 <% @class= scene.scenery%>
 <%= link_to scene_show_path(scene.id) do  %>
@@ -14,7 +17,7 @@
 </div>
 
 
-<div id="import">
+<div id="import" class="maindiv">
 	<h2>
 		Szenen aus Excel Datei importieren
 	</h2>
@@ -25,6 +28,8 @@
 	<%end%>
 </div>
 
-<footer>
+<footer class="maindiv">
 	<%= link_to "Szenen administrieren", admin_scenes_path%>
 </footer>
+
+

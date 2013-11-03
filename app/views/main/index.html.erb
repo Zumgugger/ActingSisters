@@ -1,10 +1,22 @@
-
-<div>
-	<h2><%= link_to "Szenen",  scenes_path %></h2>
-	<p>Liste mit allen Szenen</p>
+<%= link_to scenes_path do %>
+<div class="linkdiv maindiv">
+	  <h2>Szenen</h2>
+	  <p>Liste mit allen Szenen</p>
 </div>
+<%end%>
 
-<div>
-	<h2><%= link_to "Rollen", roles_path%></h2>
-	<p>Liste mit allen Rollen</p>
+
+<%= link_to roles_path do %>
+<div class="linkdiv maindiv">
+	  <h2>Rollen</h2>
+	  <p>Liste mit allen Rollen</p>
 </div>
+<%end%>
+
+
+<%= link_to actors_path do %>
+<div class="linkdiv maindiv">
+	  <h2>Schauspieler</h2>
+	  <p>Liste mit allen Schauspielern</p>
+</div>
+<%end%>

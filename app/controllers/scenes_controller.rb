@@ -11,6 +11,9 @@ class ScenesController < ApplicationController
 
   def show
     set_scene
+    @scenes = Scene.all
+    @end = @scenes.length
+    
   end
   
   def import

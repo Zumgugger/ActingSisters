@@ -1,0 +1,13 @@
+<div class="maindiv">
+	<h1>Schauspieler <%=@actor.name%></h1>
+</div>
+
+<div class="maindiv">
+	<p>	
+		<% @actor.allocations.each do |a| %>
+			<% role =  a.role%>
+			<%= link_to role.name, role_show_path(role.id)%>
+			in der Besetzung <%= a.cast.name.capitalize %>
+		<%end%>
+	</p>
+</div>
