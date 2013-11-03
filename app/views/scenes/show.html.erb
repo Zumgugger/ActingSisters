@@ -5,6 +5,7 @@
 		Szene <%= @scene.number%> 
 		<%=link_to ">", scene_show_path(@scene.id + 1) if @scene.id < @end%>
 		</h1>
+		<h2>Bühnenszenario <%=@scene.scenery.capitalize%></h2>
 	
 </div>
 

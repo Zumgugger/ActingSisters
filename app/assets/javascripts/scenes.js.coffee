@@ -5,12 +5,8 @@
 
 $ ->
   $(".listdiv").mouseover ->
-    $(this).animate(height:60, width:60)
+    $(this).animate({marginRight: '5px'; marginBottom: '5px'; height : '45px'; width: '45px'})
     
 $ ->
   $(".listdiv").mouseleave ->
-    $(this).animate(height:40, width:40)
-
-$ ->
-  $(".listdiv").click ->
-    $(this).animate(width:80, height:80)
+    $(this).animate({marginRight: '10px'; marginBottom: '10px';  height : '40px'; width: '40px'})
