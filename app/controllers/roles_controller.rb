@@ -6,12 +6,15 @@ class RolesController < ApplicationController
     @columns = Role.column_names[0..-3]
     @roles = Role.all.sort_by {|obj| obj.name}
     @scenes = Scene.all
+    @title = "Rollen"
+    @controller = "roles"
   end #index
 
 
   def show
     set_role
     @casts = Cast.all
+    @title = "Rolle"
   end #show
    
   def import

@@ -4,6 +4,7 @@ class ActorsController < ApplicationController
   def index
     @columns = Actor.column_names[0..-3]
     @actors = Actor.all.sort_by {|obj| obj.name}
+    @title = "Schauspieler"
     
     
   end #index
@@ -11,6 +12,7 @@ class ActorsController < ApplicationController
 
   def show
     set_actor
+    @title = "Schauspieler"
     
   end #show
 

@@ -41,6 +41,16 @@ footer {
 	padding:20px;
 	
 }
+
+#header {
+	width:100%;
+
+}
+
+#logindiv {
+	float:right;
+	clear:none;
+}
 #container {
 	margin:20px;
 	padding: 20px;

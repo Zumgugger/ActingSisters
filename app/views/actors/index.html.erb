@@ -1,12 +1,12 @@
 <div class="maindiv">
-	<h1>Alle Schauspieler des Musicals</h1>
+	<h1>Alle <%=@title%> des Musicals</h1>
 	<p>Klicken, um Infos zu erhalten</p>
 </div>
 
 <div class="maindiv">
 	<table>
   		<thead>
-  			<th>Schauspieler</th>
+  			<th><%=@title%></th>
   			<th>Spielt folgende Rollen</th>
   			<th>Klasse</th>
 		</thead>
@@ -31,3 +31,19 @@
 		<%end%>
 	</table>
 </div>
+
+<%if signed_in? %>
+<div id="import" class="maindiv">
+	<h2>
+		<%=@title%> aus Excel Datei importieren
+	</h2>
+	<p>Spalten: <%= @columns%></p>
+	<%= form_tag roles_import_path, multipart: true do %>
+	  <%= file_field_tag :file%>
+	  <%= submit_tag "Importieren"%>
+	<%end%>
+	
+<div class="maindiv">
+	<%= link_to "Schauspieler administrieren", admin_actors_path%>
+</div>
+<% end %>

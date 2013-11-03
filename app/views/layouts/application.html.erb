@@ -12,13 +12,21 @@
 
 <div id="container">
 	
-	
+<div id="header">
 	<%= link_to root_path do %>
-	<div id="logodiv" class="linkdiv maindiv">	
-	<h1>Acting Sisters</h1>
-    <p>Musical der Sekstufe1 Wichtrach</p>
-    </div>
+		<div id="logodiv" class="linkdiv maindiv">	
+			<h1>Acting Sisters</h1>
+    		<p>Musical der Sekstufe1 Wichtrach</p>
+    	</div>
     <%end%>
+    
+    <%= link_to "/admin/login" do %>
+		<div id="logindiv" class="linkdiv">
+			<p>login</p>
+		</div>
+	<%end%>
+
+</div>
     <%= yield %>
 
 </div>

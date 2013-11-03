@@ -16,7 +16,7 @@
 <%end%>
 </div>
 
-
+<%if signed_in?%>
 <div id="import" class="maindiv">
 	<h2>
 		Szenen aus Excel Datei importieren
@@ -28,8 +28,9 @@
 	<%end%>
 </div>
 
-<footer class="maindiv">
+<div class="maindiv">
 	<%= link_to "Szenen administrieren", admin_scenes_path%>
-</footer>
+</div>
+<% end %>
 
 
