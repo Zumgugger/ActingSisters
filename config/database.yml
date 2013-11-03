@@ -23,4 +23,4 @@ production:
   encoding: unicode
   database: ActingSisters_production
   pool: 5
-  username:ActingSisters
+  username: ActingSisters
