@@ -38,7 +38,7 @@
 		<%=@title%> aus Excel Datei importieren
 	</h2>
 	<p>Spalten: <%= @columns%></p>
-	<%= form_tag roles_import_path, multipart: true do %>
+	<%= form_tag actors_import_path, multipart: true do %>
 	  <%= file_field_tag :file%>
 	  <%= submit_tag "Importieren"%>
 	<%end%>
