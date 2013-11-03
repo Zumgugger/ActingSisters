@@ -10,3 +10,7 @@ $ ->
 $ ->
   $(".listdiv").mouseleave ->
     $(this).animate({marginRight: '10px'; marginBottom: '10px';  height : '40px'; width: '40px'})
+
+
+jQuery ->
+  $('.best_in_place').best_in_place()

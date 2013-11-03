@@ -38,8 +38,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'roo'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

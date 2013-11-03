@@ -30,6 +30,8 @@ ActingSisters::Application.routes.draw do
   get "scene/:id" => 'scenes#show', as: :scene_show
   get "scenes/show"
   
+  put "scenes/:id" => 'scenes#update', as: :scene_update
+  
   post 'scenes/import' => 'scenes#import'
   
   
