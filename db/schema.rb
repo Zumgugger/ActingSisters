@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131102123627) do
+ActiveRecord::Schema.define(version: 20131103100424) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -73,6 +73,12 @@ ActiveRecord::Schema.define(version: 20131102123627) do
     t.datetime "updated_at"
   end
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "entrances", force: true do |t|
     t.integer  "cast_id"
     t.integer  "scene_id"
@@ -92,7 +98,10 @@ ActiveRecord::Schema.define(version: 20131102123627) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id"
   end
+
+  add_index "roles", ["category_id"], name: "index_roles_on_category_id"
 
   create_table "scenes", force: true do |t|
     t.string   "number"

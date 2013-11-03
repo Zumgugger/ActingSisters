@@ -1,17 +1,19 @@
 ActiveAdmin.register Role do
    controller do
     def permitted_params
-      params.permit role: [:name]
+      params.permit role: [:name, :category_id]
     end
   end
   
   index do 
     selectable_column
     column :name
+    column :category
     default_actions
   end
   
   filter :name
+  filter :category
 
     
     

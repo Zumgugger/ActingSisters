@@ -6,25 +6,27 @@ class RolesController < ApplicationController
     @columns = Role.column_names[0..-3]
     @roles = Role.all.sort_by {|obj| obj.name}
     @scenes = Scene.all
-    
-    
   end #index
 
 
   def show
     set_role
     @casts = Cast.all
-    
   end #show
+   
+  def import
+    Role.import(params[:file])
+    redirect_to roles_path
+  end
 
 
 
 
 
 private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_role
-      @role = Role.find(params[:id])
-    end #set_role
+  # Use callbacks to share common setup or constraints between actions.
+  def set_role
+    @role = Role.find(params[:id])
+  end #set_role
     
 end #class

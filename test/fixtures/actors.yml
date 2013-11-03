@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: actors
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  last_name   :string(255)
+#  description :text
+#  schoolclass :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:

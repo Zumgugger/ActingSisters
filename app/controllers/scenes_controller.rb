@@ -18,7 +18,7 @@ class ScenesController < ApplicationController
   
   def import
     Scene.import(params[:file])
-    redirect_to root_url
+    redirect_to scenes_path
   end
 end
 

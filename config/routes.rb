@@ -17,6 +17,8 @@ ActingSisters::Application.routes.draw do
   get "role/:id" => 'roles#show', as: :role_show
   get "roles/show"
   
+  post 'roles/import' => 'roles#import'
+  
   
   
   #Szenen

@@ -8,17 +8,23 @@
   		<thead>
   			<th>Schauspieler</th>
   			<th>Spielt folgende Rollen</th>
+  			<th>Klasse</th>
 		</thead>
   	
   		<% @actors.each do |actor|%>
 		<tr>
-			<td><%= link_to actor_show_path(actor.id) do  %>
+			<td>
+				<%= link_to actor_show_path(actor.id) do  %>
      			<%= actor.name %>
      		</td>
-			<td><% actor.allocations.each do |a|%>
+			<td>
+				<% actor.allocations.each do |a|%>
 				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_show_path(a.id)%>
 				<br>
 				<%end%>
+			</td>
+			<td>
+				<%= actor.schoolclass%>				
 			</td>
 			<%end%>	  
 		</tr>

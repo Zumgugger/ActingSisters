@@ -30,3 +30,13 @@
 	</table>
 </div>
 
+<div id="import" class="maindiv">
+	<h2>
+		Rollen aus Excel Datei importieren
+	</h2>
+	<p>Spalten: <%= @columns%></p>
+	<%= form_tag roles_import_path, multipart: true do %>
+	  <%= file_field_tag :file%>
+	  <%= submit_tag "Importieren"%>
+	<%end%>
+</div>
