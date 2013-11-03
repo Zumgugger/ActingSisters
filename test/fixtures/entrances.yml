@@ -3,7 +3,6 @@
 # Table name: entrances
 #
 #  id          :integer          not null, primary key
-#  cast_id     :integer
 #  scene_id    :integer
 #  role_id     :integer
 #  speaking?   :boolean

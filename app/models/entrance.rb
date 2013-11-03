@@ -3,7 +3,6 @@
 # Table name: entrances
 #
 #  id          :integer          not null, primary key
-#  cast_id     :integer
 #  scene_id    :integer
 #  role_id     :integer
 #  speaking?   :boolean
@@ -13,12 +12,12 @@
 #  updated_at  :datetime
 #
 
+
 class Entrance < ActiveRecord::Base
-  belongs_to :cast
   belongs_to :scene
   belongs_to :role
   
   def name
-    "#{self.cast.name} - #{self.scene.number} - #{self.role.name}"
+    "#{self.scene.number} - #{self.role.name}"
   end
 end

@@ -7,6 +7,7 @@ ActiveAdmin.register Role do
   
   index do 
     selectable_column
+    column :id
     column :name
     column :category
     default_actions

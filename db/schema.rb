@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131103100424) do
+ActiveRecord::Schema.define(version: 20131103195111) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 20131103100424) do
   end
 
   create_table "entrances", force: true do |t|
-    t.integer  "cast_id"
     t.integer  "scene_id"
     t.integer  "role_id"
     t.boolean  "speaking?"
@@ -90,7 +89,6 @@ ActiveRecord::Schema.define(version: 20131103100424) do
     t.datetime "updated_at"
   end
 
-  add_index "entrances", ["cast_id"], name: "index_entrances_on_cast_id"
   add_index "entrances", ["role_id"], name: "index_entrances_on_role_id"
   add_index "entrances", ["scene_id"], name: "index_entrances_on_scene_id"
 

@@ -4,7 +4,7 @@
 
 <% @casts.each do |cast|%>
 <div class="maindiv">
-	<h2><%= cast.name %></h2>
+	<h2>Besetzung <%= cast.name %></h2>
 	<p>
 		<% @role.allocations.each do |a| %>
 			<% actor =  a.actor%>
@@ -14,3 +14,14 @@
 </div>
 <%end%>
 
+<div class="maindiv">
+	<h2> Bei folgenden Szenen auf der Bühne </h2>
+	<% @role.entrances.each do |e| %>
+	<%= link_to e.scene.number, scene_show_path(e.scene.id) %>
+
+
+
+	<h2> In folgenden Szenen sprechend </h2>
+	<%= link_to e.scene.number, scene_show_path(e.scene.id) if e.speaking? %>
+	<%end%>
+</div>

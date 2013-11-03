@@ -1,13 +1,13 @@
 ActiveAdmin.register Entrance do
   controller do
     def permitted_params
-      params.permit entrance: [:speaking?, :singing?, :description, :cast_id, :scene_id, :role_id]
+      params.permit entrance: [:speaking?, :singing?, :description, :scene_id, :role_id]
     end
   end
 
   
   index do 
-    column :cast, :sortable => :cast
+    selectable_column
     column :scene, :sortable => :scene
     column :role, :sortable => :role
     column :speaking?
@@ -17,7 +17,6 @@ ActiveAdmin.register Entrance do
     
   end
   
-  filter :cast
   filter :role
   filter :scene
   filter :speaking?

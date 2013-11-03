@@ -17,6 +17,6 @@ class Allocation < ActiveRecord::Base
   
   
     def name
-    "#{self.cast.name.capitalize} - #{self.role.name} - #{self.actor.name}"
+    "#{self.cast.name} - #{self.role.name} - #{self.actor.name}"
     end
 end

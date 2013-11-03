@@ -9,6 +9,6 @@
 #
 
 class Cast < ActiveRecord::Base
-  has_many :entrances
   has_many :allocations
+  has_many :roles, :through => :allocations
 end
