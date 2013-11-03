@@ -26,7 +26,7 @@ class Role < ActiveRecord::Base
          row = Hash[[header, spreadsheet.row(r)].transpose]
 
         role = find_by_id(row["id"]) || new
-        role.attributes = row.to_hash.slice("name")
+        role.attributes = row.to_hash.slice("id", "name")
 
         role.save!
       end

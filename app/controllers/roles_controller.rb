@@ -3,7 +3,7 @@ class RolesController < ApplicationController
   before_action :set_role, only: [:show]
       
   def index
-    @columns = Role.column_names[0..-3]
+    @columns = "id, name"
     @roles = Role.all.sort_by {|obj| obj.name}
     @scenes = Scene.all
     @title = "Rollen"
