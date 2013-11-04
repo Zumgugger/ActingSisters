@@ -1,7 +1,11 @@
 ActingSisters::Application.routes.draw do
+
   root 'main#index'
   get "main/index"
   
+  #Auftritte
+  
+  resources :entrances
   
   #Schauspieler
   get "actors/index", as: :actors

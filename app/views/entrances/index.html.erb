@@ -1,0 +1,35 @@
+
+
+<div class="maindiv">
+	<h2>
+		Alle Auftritte
+	</h2>
+	
+	<table>
+		<thead>
+			<th>Szene</th>
+			<th>Rolle</th>
+			<th>Sprechend?</th>
+			<th>Singend?</th>
+			<th>Löschen</th>
+		</thead>
+		<% @entrances.each do |e|%>
+		<tr>
+			<td><%= best_in_place_if signed_in?, e, :scene_id, :type => :select, :collection => @scenes %></td>
+			<td><%= best_in_place_if signed_in?, e, :role_id, :type => :select, :collection => @roles %></td>
+			<td><%= best_in_place_if signed_in?, e, :speaking?, :type => :checkbox, :collection => ["Nein", "Ja"] %></td>
+			<td><%= best_in_place_if signed_in?, e, :singing?, :type => :checkbox, :collection => ["Nein", "Ja"]  %></td>
+			<td><%= link_to "Löschen", entrance_path(e.id), :method => 'delete' if signed_in? %></td>
+		</tr>
+
+		<%end%>
+		<tr>
+     		<td><%= link_to "Neu", entrances_path, :method => 'post' if signed_in? %></td>
+		</tr>
+
+	</table>
+	
+</div>
+
+
+

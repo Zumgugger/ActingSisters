@@ -20,10 +20,18 @@
     	</div>
     <%end%>
     
-    <%= link_to "/admin/login" do %>
-		<div id="logindiv" class="linkdiv">
-			<p>login</p>
-		</div>
+    <% if signed_in? %>
+        <%= link_to "/admin/logout" do %>
+			<div id="logindiv" class="linkdiv">
+				<p>logout</p>
+			</div>
+		<%end%>
+    <%else%>
+    	<%= link_to "/admin/login" do %>
+			<div id="logindiv" class="linkdiv">
+				<p>login</p>
+			</div>
+		<%end%>
 	<%end%>
 
 </div>
