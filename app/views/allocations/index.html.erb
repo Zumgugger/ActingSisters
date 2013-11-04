@@ -1,0 +1,32 @@
+<div class="maindiv">
+	<h2>
+		Alle Rollenzuteilungen
+	</h2>
+	
+	<table>
+		<thead>
+			<th><%= link_to "Besetzung"%></th>
+			<th><%= link_to "Rolle"%></th>
+			<th><%= link_to "SchauspielerIn"%></th>
+			<th>Löschen</th>
+		</thead>
+		<tbody>
+		<% @allocations.each do |a|%>
+		<tr>
+			<td><%= best_in_place_if signed_in?, a, :cast_id, :type => :select, :collection => @casts %></td>
+			<td><%= best_in_place_if signed_in?, a, :role_id, :type => :select, :collection => @roles %></td>
+			<td><%= best_in_place_if signed_in?, a, :actor_id, :type => :select, :collection => @actors %></td>
+			<td><%= link_to "Löschen", allocation_path(a.id), :method => 'delete' if signed_in? %></td>
+		</tr>
+
+		<%end%>
+     	</tbody>
+
+	</table>
+	<%= link_to "Neu", allocations_path, :method => 'post' if signed_in? %>
+</div>
+
+
+
+
+

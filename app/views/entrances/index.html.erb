@@ -7,12 +7,14 @@
 	
 	<table>
 		<thead>
-			<th>Szene</th>
-			<th>Rolle</th>
-			<th>Sprechend?</th>
-			<th>Singend?</th>
+			<th><%= link_to "Szene" %></th>
+			<th><%= link_to "Rolle" %></th>
+			<th><%= link_to "Sprechend?" %></th>
+			<th><%= link_to "Singend?" %></th>
 			<th>Löschen</th>
 		</thead>
+		
+		<tbody>
 		<% @entrances.each do |e|%>
 		<tr>
 			<td><%= best_in_place_if signed_in?, e, :scene_id, :type => :select, :collection => @scenes %></td>
@@ -23,11 +25,13 @@
 		</tr>
 
 		<%end%>
-		<tr>
-     		<td><%= link_to "Neu", entrances_path, :method => 'post' if signed_in? %></td>
-		</tr>
+		</tbody>
+		
+     		
+		
 
 	</table>
+	<%= link_to "Neu", entrances_path, :method => 'post' if signed_in? %>
 	
 </div>
 

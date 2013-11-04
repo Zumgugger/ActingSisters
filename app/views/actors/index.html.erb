@@ -4,31 +4,38 @@
 </div>
 
 <div class="maindiv">
-	<table>
+	<table id="actors">
   		<thead>
-  			<th><%=@title%></th>
-  			<th>Spielt folgende Rollen</th>
-  			<th>Klasse</th>
+  			<th><%= link_to "Vorname"%></th>
+  			<th><%= link_to "Nachname"%></th>
+  			<th><%= link_to "Rollen"%></th>
+  			<th><%= link_to "Klasse"%></th>
 		</thead>
-  	
+  		<tbody>
   		<% @actors.each do |actor|%>
 		<tr>
 			<td>
 				<%= link_to actor_show_path(actor.id) do  %>
      			<%= actor.name %>
+     			<%end%>
+     		</td>
+     		<td>
+				<%= link_to actor_show_path(actor.id) do  %>
+     			<%= actor.last_name %>
+     			<%end%>
      		</td>
 			<td>
 				<% actor.allocations.each do |a|%>
-				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_show_path(a.id)%>
-				<br>
+				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_show_path(a.role.id)%>
+				<br />
 				<%end%>
 			</td>
 			<td>
 				<%= actor.schoolclass%>				
 			</td>
-			<%end%>	  
 		</tr>
 		<%end%>
+		</tbody>
 	</table>
 </div>
 
@@ -46,4 +53,4 @@
 <div class="maindiv">
 	<%= link_to "Schauspieler administrieren", admin_actors_path%>
 </div>
-<% end %>
+<%end%>

@@ -55,11 +55,20 @@ footer {
 	padding: 20px;
     border: 10px black solid;
 	border-radius: 20px;
-	width: 860px;
 	background:-moz-linear-gradient(bottom,orange,darkorange); /* Firefox */
     background:-webkit-gradient(linear,left top,left bottom,from(orange),to(darkorange)); /* Chrome, Safari */
     filter: progid:DXImageTransform.Microsoft.gradient(start
     Colorstr='orange',endColorstr='darkorange'); /* Internet Explorer */
+}
+
+
+a {
+	text-decoration:none;
+}
+
+#nav div {
+	display: inline;
+	float:none;
 }
 
 table, th, td {

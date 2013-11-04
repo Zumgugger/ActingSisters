@@ -1,5 +1,5 @@
 <%= link_to scenes_path do %>
-<div class="linkdiv maindiv">
+<div class="linkdiv maindiv homepage">
 	  <h2>Szenen</h2>
 	  <p>Liste mit allen Szenen</p>
 </div>
@@ -7,7 +7,7 @@
 
 
 <%= link_to roles_path do %>
-<div class="linkdiv maindiv">
+<div class="linkdiv homepage">
 	  <h2>Rollen</h2>
 	  <p>Liste mit allen Rollen</p>
 </div>
@@ -15,7 +15,7 @@
 
 
 <%= link_to actors_path do %>
-<div class="linkdiv maindiv">
+<div class="linkdiv homepage">
 	  <h2>Schauspieler</h2>
 	  <p>Liste mit allen Schauspielern</p>
 </div>
@@ -23,13 +23,18 @@
 
 <%if signed_in? %>
 <%= link_to entrances_path do %>
-<div class="linkdiv maindiv">
+<div class="linkdiv homepage">
 	  <h2>Auftritte</h2>
 	  <p>Liste mit allen Auftritten</p>
 </div>
 <%end%>
 
-
+<%= link_to allocations_path do %>
+<div class="linkdiv homepage">
+	  <h2>Rollenzuteilungen</h2>
+	  <p>Liste mit allen Rollenzuteilungen</p>
+</div>
+<%end%>
 
 
 <%end%>

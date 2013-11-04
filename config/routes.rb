@@ -1,7 +1,10 @@
 ActingSisters::Application.routes.draw do
 
-  root 'main#index'
+    root 'main#index'
   get "main/index"
+  
+  #Rollenzuteilungen 
+  resources :allocations
   
   #Auftritte
   
