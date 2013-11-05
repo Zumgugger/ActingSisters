@@ -8,7 +8,11 @@
 	<p>
 		<% @role.allocations.each do |a| %>
 			<% actor =  a.actor%>
+			<%if actor%>
 			<%= link_to actor.name, actor_show_path(actor.id) if a.cast.name == cast.name %>
+			<%else%>
+			<%="Noch keine Zuteilung"%>
+			<%end%>
 		<%end%>
 	</p>
 </div>
