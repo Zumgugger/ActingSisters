@@ -43,7 +43,7 @@ gem 'best_in_place', :git => 'https://github.com/aaronchi/best_in_place.git'
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'roo'
 
-ruby 2.0.0
+ruby "2.0.0"
 
 
 # Use ActiveModel has_secure_password
