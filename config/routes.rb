@@ -1,5 +1,6 @@
 ActingSisters::Application.routes.draw do
 
+  get "users/new"
     root 'main#index'
   get "main/index"
   

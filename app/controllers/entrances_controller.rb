@@ -77,8 +77,8 @@ class EntrancesController < ApplicationController
     end
     
     def make_collections
-      roles = Role.all
-      scenes = Scene.all
+      roles = Role.all.order(:name)
+      scenes = Scene.all.order(:number)
       @roles = []
       @scenes = []
       roles.each do |r|

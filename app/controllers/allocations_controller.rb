@@ -77,9 +77,9 @@ class AllocationsController < ApplicationController
     end
     
     def make_collections
-      roles = Role.all
-      actors = Actor.all
-      casts = Cast.all
+      roles = Role.all.order(:name)
+      actors = Actor.all.order(:name)
+      casts = Cast.all.order(:name)
       @casts = []
       @roles = []
       @actors = []
