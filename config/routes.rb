@@ -1,45 +1,27 @@
 ActingSisters::Application.routes.draw do
 
-  get "users/new"
-    root 'main#index'
-  get "main/index"
+  root 'main#index'
+
+  
+  #Rollenkategorien
+  resources :categories
   
   #Rollenzuteilungen 
   resources :allocations
   
-  #Auftritte
-  
+  #Auftritte  
   resources :entrances
   
   #Schauspieler
-  get "actors/index", as: :actors
-  get "actors" => 'actors#index'
-  
-  get "actor/:id" => 'actors#show', as: :actor_show
-  get "actors/show"
-  
+  resources :actors
   post 'actors/import' => 'actors#import'
   
   #Rollen
-  get "roles/index", as: :roles
-  get "roles" => 'roles#index'
-  
-  get "role/:id" => 'roles#show', as: :role_show
-  get "roles/show"
-  
+  resources :roles
   post 'roles/import' => 'roles#import'
   
-  
-  
   #Szenen
-  get "scenes/index", as: :scenes
-  get "scenes" => 'scenes#index'
-    
-  get "scene/:id" => 'scenes#show', as: :scene_show
-  get "scenes/show"
-  
-  put "scenes/:id" => 'scenes#update', as: :scene_update
-  
+  resources :scenes  
   post 'scenes/import' => 'scenes#import'
   
   

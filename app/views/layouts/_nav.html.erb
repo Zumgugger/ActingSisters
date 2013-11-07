@@ -1,10 +1,10 @@
 <div id="nav" class="maindiv">
-	<div><%= link_to "Szenen", scenes_path%> |</div>
-	<div><%= link_to "Rollen", roles_path%> |</div>
-	<div><%= link_to "SchauspielerInnen", actors_path%></div>
-	
-	<%if signed_in?%>
-	<div> | <%= link_to "Auftritte", entrances_path %></div>
-	<div> | <%= link_to "Rollenzuteilung", allocations_path %></div>
+	<div><%= link_to "Szenen", scenes_path%> | </div>
+	<div><%= link_to "Rollen", roles_path%> | </div>
+	<div><%= link_to "SchauspielerInnen", actors_path%> | </div>
+	<div><%= link_to "Auftritte", entrances_path %> | </div>
+	<div><%= link_to "Rollenzuteilung", allocations_path %></div>
+	<%if signed_in? %>
+	<div> | <%= link_to "Rollenkategorien", categories_path%></div>
 	<%end%>
 </div>

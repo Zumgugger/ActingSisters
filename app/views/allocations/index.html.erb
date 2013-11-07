@@ -8,25 +8,42 @@
 			<th><%= link_to "Besetzung"%></th>
 			<th><%= link_to "Rolle"%></th>
 			<th><%= link_to "SchauspielerIn"%></th>
-			<th>Löschen</th>
+			<% if signed_in? %>
+			<th><%= "Löschen" %></th>
+			<%end%>
 		</thead>
 		<tbody>
+			
+
+		<% if signed_in? %>
 		<% @allocations.each do |a|%>
+		
 		<tr>
-			<td><%= best_in_place_if signed_in?, a, :cast_id, :type => :select, :collection => @casts %></td>
-			<td><%= best_in_place_if signed_in?, a, :role_id, :type => :select, :collection => @roles %></td>
-			<td><%= best_in_place_if signed_in?, a, :actor_id, :type => :select, :collection => @actors %></td>
-			<td><%= link_to "Löschen", allocation_path(a.id), :method => 'delete' if signed_in? %></td>
+			<td><%= best_in_place a, :cast_id, :type => :select, :collection => @casts %></td>
+			<td><%= best_in_place a, :role_id, :type => :select, :collection => @roles %></td>
+			<td><%= best_in_place a, :actor_id, :type => :select, :collection => @actors %></td>
+			<td><%= link_to "Löschen", allocation_path(a.id), :method => 'delete' %></td>
+		</tr>
+		
+		<%end%>
+		<%end%>
+		
+
+		<% unless signed_in? %>
+		<% @allocations.each do |a|%>
+		
+		<tr>
+			<td><%if a.cast%><%= a.cast.name ||= "-" %><%else%>-<%end%></td>
+			<td><%if a.role%><%= link_to a.role.name, role_path(a.role_id)%><%else%>-<%end%></td>
+			<td><%if a.actor%><%= link_to a.actor.name, actor_path(a.actor_id)%><%else%>-<%end%></td>
 		</tr>
 
+
+		<%end%>
 		<%end%>
      	</tbody>
-
+       
 	</table>
+
 	<%= link_to "Neu", allocations_path, :method => 'post' if signed_in? %>
 </div>
-
-
-
-
-

@@ -8,7 +8,7 @@
 <div class="maindiv">
 <% @scenes.each do |scene|%>
 <% @class= scene.scenery%>
-<%= link_to scene_show_path(scene.id) do  %>
+<%= link_to scene_path(scene.id) do  %>
 
 <div class='listdiv <%=scene.scenery%>'><%= scene.number %></div>
 

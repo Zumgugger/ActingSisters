@@ -4,14 +4,12 @@ class ActorsController < ApplicationController
   def index
     @columns = Actor.column_names[0..-3]
     @actors = Actor.order(:name)
-    @title = "SchauspielerInnen"    
   end #index
 
 
   def show
     set_actor
-    @title = "SchauspielerInnen"
-    
+        
   end #show
 
   def import

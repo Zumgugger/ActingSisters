@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 37048c723f0ec5ac618e6317d96952758b42736b
+  revision: a6f6794c0fbac3b481afe3bd0acbb36d792b0300
   specs:
-    activeadmin (0.6.1)
+    activeadmin (1.0.0.pre)
       arbre (~> 1.0)
       bourbon
       coffee-rails
@@ -133,7 +133,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
-    ransack (1.0.0)
+    ransack (1.1.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
       polyamorous (~> 0.6.0)

@@ -1,36 +1,35 @@
-<div class="maindiv">
-	<h1>Alle Rollen des Musicals</h1>
-	<p>Klicken, um Infos zu erhalten</p>
-</div>
 
 <div class="maindiv">
-	<table>
-  		<thead>
-  			<th><%= link_to "Rolle" %></th>
-  			<th><%= link_to "Szenen auf der Bühne" %></th>
-  			<th><%= link_to "gesprochene Szenen" %></th>
-  		</thead>
+	<h2>
+		Alle Rollen
+	</h2>
+<table>
+  	<thead>
+  		<th><%= link_to "Rolle" %></th>
+  		<th><%= link_to "Szenen auf der Bühne" %></th>
+  		<th><%= link_to "gesprochene Szenen" %></th>
+  		<th><%= link_to "Kategorie"%></th>
+  	</thead>
   		
-  		<tbody>
-  	
-  		<% @roles.each do |role|%>
-		<tr>
-			<td><%= link_to role_show_path(role.id) do  %>
-     			<%= role.name %>
-     		</td>
-			<td><% role.scenes.each do |s|%>
-				<%= link_to s.name, scene_show_path(s.id)%>
-				<%end%>
-			</td>
-			<td><% role.entrances.each do |e|%>
-				<%= link_to e.scene.number, scene_show_path(e.scene.id) if e.speaking?%>
-				<%end%>
-			</td>
+  	<tbody>  	
+  	<% @roles.each do |r|%>
+	<tr>
+		<td><%= link_to r.name, role_path(r.id)%></td>
+		<td><% r.scenes.each do |s|%>
+			<%= link_to s.name, scene_path(s.id)%>
 			<%end%>
-		</tr>
-		<%end%>
-		</tbody>
-	</table>
+		</td>
+		<td><% r.entrances.each do |e|%>
+			<%= link_to e.scene.number, scene_path(e.scene.id) if e.speaking?%>
+			<%end%>
+		</td>
+		<td>
+			<%= best_in_place_if signed_in?, r, :category_id, :type => :select, :collection => @categories %>
+		</td>
+	</tr>
+	<%end%>
+	</tbody>
+</table>
 </div>
 
 <%if signed_in?%>

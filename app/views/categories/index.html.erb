@@ -1,0 +1,15 @@
+<div class='maindiv'>
+	<h1>Rollenkategorien</h1>
+	<p>Helfen dabei, Rollen schneller zu finden. Nur Zugriff mit Adminrechten.</p>
+
+	<table>
+		<% @categories.each do |c|%>
+
+			
+			<li><%= best_in_place_if signed_in?, c, :name%>
+				<%= link_to "Löschen", category_path(c.id), :method => 'delete' if signed_in? %>
+			</li>
+		<%end%>
+	</ul>
+	<%= link_to "Neu", categories_path, :method => 'post' if signed_in? %>
+</div>

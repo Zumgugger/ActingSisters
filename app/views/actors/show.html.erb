@@ -6,7 +6,7 @@
 	<p>	
 		<% @actor.allocations.each do |a| %>
 			<% role =  a.role%>
-			<%= link_to role.name, role_show_path(role.id)%>
+			<%= link_to role.name, role_path(role.id)%>
 			in der Besetzung <%= a.cast.name %> <br />
 		<%end%>
 	</p>

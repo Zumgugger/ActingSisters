@@ -9,7 +9,7 @@
 		<% @role.allocations.each do |a| %>
 			<% actor =  a.actor%>
 			<%if actor%>
-			<%= link_to actor.name, actor_show_path(actor.id) if a.cast.name == cast.name %>
+			<%= link_to actor.name, actor_path(actor.id) if a.cast.name == cast.name %>
 			<%else%>
 			<%="Noch keine Zuteilung"%>
 			<%end%>
@@ -21,12 +21,12 @@
 <div class="maindiv">
 	<h2> Bei folgenden Szenen auf der Bühne </h2>
 	<% @role.entrances.each do |e| %>
-	<%= link_to e.scene.number, scene_show_path(e.scene.id) %>
+	<%= link_to e.scene.number, scene_path(e.scene.id) %>
 
 
 
 	<h2> In folgenden Szenen sprechend </h2>
-	<%= link_to e.scene.number, scene_show_path(e.scene.id) if e.speaking? %>
+	<%= link_to e.scene.number, scene_path(e.scene.id) if e.speaking? %>
 	<%end%>
 	
 </div>

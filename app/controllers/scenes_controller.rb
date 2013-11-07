@@ -8,6 +8,14 @@ class ScenesController < ApplicationController
       @list << s.number
     end #do
   end #index
+  
+  def new
+    
+  end
+  
+  def create
+    
+  end
 
   def show
     set_scene
@@ -19,12 +27,9 @@ class ScenesController < ApplicationController
     end #do
   end #show
   
-  def import
-    Scene.import(params[:file])
-    redirect_to scenes_path
-  end #import
-  
-
+  def edit
+    
+  end
   
   def update
     respond_to do |format|
@@ -36,9 +41,17 @@ class ScenesController < ApplicationController
         format.json { render json: @test.errors, status: :unprocessable_entity }
       end #if
     end #do
-  end #def
+  end #update
 
-
+  def import
+    Scene.import(params[:file])
+    redirect_to scenes_path
+  end #import
+  
+  def destroy
+    
+  end
+  
 
 private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,33 +1,32 @@
 <div class="maindiv">
-	<h1>
-		
-		<%=link_to "<", scene_show_path(@scene.id - 1) if @scene.id > 1%>
+	<h1>		
+		<%=link_to "<", scene_path(@scene.id - 1) if @scene.id > 1%>
 		Szene <%= @scene.number%> 
-		<%=link_to ">", scene_show_path(@scene.id + 1) if @scene.id < @end%>
-		</h1>
-		<h2>Bühnenszenario 
-			<% if signed_in? %>
-			    <%= best_in_place @scene, :scenery, type: :select, collection: @collection, :path => scene_update_path(@scene.id)%>
-		    <%else%>
-		    	<%= @scene.scenery %>
-		    <%end%>
-		</h2>
+		<%=link_to ">", scene_path(@scene.id + 1) if @scene.id < @end%>
+	</h1>
 	
+	<h2>Bühnenszenario 
+		<% if signed_in? %>
+			<%= best_in_place @scene, :scenery, type: :select, collection: @collection, :path => scene_path(@scene.id)%>
+		<%else%>
+		    <%= @scene.scenery %>
+		<%end%>
+	</h2>
 </div>
 
 <div class="maindiv">
 	<h2>Rollen auf der Bühne</h2>
 	<% @scene.entrances.each do |entrance| %>
-		<%= link_to entrance.role.name, role_show_path(entrance.role.id) %>
+		<%= link_to entrance.role.name, role_path(entrance.role.id) %>
 		<%= entrance.description %><br/>
 	<%end%>
 	<h2>Rollen mit Text</h2>
 	<% @scene.entrances.each do |entrance| %>
-		<%= link_to entrance.role.name, role_show_path(entrance.role.id) if entrance.speaking?%><br />
+		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.speaking?%><br />
 	<%end%>
 	<h2>Rollen mit Gesang</h2>
 	<% @scene.entrances.each do |entrance| %>
-		<%= link_to entrance.role.name, role_show_path(entrance.role.id) if entrance.singing?%><br />
+		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.singing?%><br />
 	<%end%>
 </div>
 

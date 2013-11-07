@@ -18,7 +18,6 @@ class EntrancesController < ApplicationController
   # GET /entrances/new
   def new
     @entrance = Entrance.new
-    
   end
 
   # GET /entrances/1/edit
@@ -49,7 +48,7 @@ class EntrancesController < ApplicationController
         format.html { redirect_to @entrance, notice: 'entrance was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'show' }
+        format.html { render action: 'index' }
         format.json { render json: @entrance.errors, status: :unprocessable_entity }
       end
     end

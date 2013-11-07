@@ -68,6 +68,16 @@
 				<li>Dann muss die Datei auf einem Server im Web zur Verfügung gestellt werden zB. uploaden auf  http://www.zumgugger.ch/dateien/mydb.dump</li>
 				<li>heroku pgbackups:restore 'http://www.zumgugger.ch/dateien/mydb.dump</li>
 			</ol>
+		<h1>Setup Postgresql</h1>
+			<ol>
+				<li>download mit klick installer wichtig!</li>
+				<li>mit pgAdminIII user und datenbank einrichten</li>
+				<li> gemfile und config/database.yaml anpassen</li>
+				<li>mit pgAdminII den postgres server starten</li>
+				<li>im verzeichnis: rake db:migrate</li>
+				<li>fertig.</li>
+				<li>(falls postgres falsch/anders installiert wurde: sudo apt-get --purge remove postresql oder wenn alles nichts mehr hilft: google suche "remove postgres manually"). Rechner neu starten!</li>
+			</ol>
 	</body>
     
     

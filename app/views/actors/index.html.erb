@@ -1,5 +1,5 @@
 <div class="maindiv">
-	<h1>Alle <%=@title%> des Musicals</h1>
+	<h1>Alle SchauspielerInnen des Musicals</h1>
 	<p>Klicken, um Infos zu erhalten</p>
 </div>
 
@@ -11,22 +11,23 @@
   			<th><%= link_to "Rollen"%></th>
   			<th><%= link_to "Klasse"%></th>
 		</thead>
+		
   		<tbody>
   		<% @actors.each do |actor|%>
 		<tr>
 			<td>
-				<%= link_to actor_show_path(actor.id) do  %>
+				<%= link_to actor_path(actor.id) do  %>
      			<%= actor.name %>
      			<%end%>
      		</td>
      		<td>
-				<%= link_to actor_show_path(actor.id) do  %>
+				<%= link_to actor_path(actor.id) do  %>
      			<%= actor.last_name %>
      			<%end%>
      		</td>
 			<td>
 				<% actor.allocations.each do |a|%>
-				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_show_path(a.role.id)%>
+				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_path(a.role.id)%>
 				<br />
 				<%end%>
 			</td>
@@ -42,7 +43,7 @@
 <%if signed_in? %>
 <div id="import" class="maindiv">
 	<h2>
-		<%=@title%> aus Excel Datei importieren
+		Schauspieler aus Excel Datei importieren
 	</h2>
 	<p>Spalten: <%= @columns%></p>
 	<%= form_tag actors_import_path, multipart: true do %>
