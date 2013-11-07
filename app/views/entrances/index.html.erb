@@ -10,19 +10,30 @@
 			<th><%= link_to "Rolle" %></th>
 			<th><%= link_to "Sprechend?" %></th>
 			<th><%= link_to "Singend?" %></th>
-			<th>Löschen</th>
+			<%if signed_in?%><th>Löschen</th><%end%>
 		</thead>
 		
 		<tbody>
 		<% @entrances.each do |e|%>
+		
+		<%unless signed_in?%>
 		<tr>
-			<td><%= best_in_place_if signed_in?, e, :scene_id, :type => :select, :collection => @scenes %></td>
-			<td><%= best_in_place_if signed_in?, e, :role_id, :type => :select, :collection => @roles %></td>
-			<td><%= best_in_place_if signed_in?, e, :speaking?, :type => :checkbox, :collection => ["Nein", "Ja"] %></td>
-			<td><%= best_in_place_if signed_in?, e, :singing?, :type => :checkbox, :collection => ["Nein", "Ja"]  %></td>
+			<td><%= link_to e.scene.name, scene_path(e.scene_id) %></td>
+			<td><%= link_to e.role.name, role_path(e.role_id) %></td>
+			<td><%= e.speaking? ? "Ja" : "Nein"%></td>
+			<td><%= e.singing? ? "Ja" : "Nein" %></td>
+		</tr>
+		<%end%>
+		
+		<%if signed_in?%>
+		<tr>
+			<td><%= best_in_place e, :scene_id, :type => :select, :collection => @scenes %></td>
+			<td><%= best_in_place e, :role_id, :type => :select, :collection => @roles %></td>
+			<td><%= best_in_place e, :speaking?, :type => :checkbox, :collection => ["Nein", "Ja"] %></td>
+			<td><%= best_in_place e, :singing?, :type => :checkbox, :collection => ["Nein", "Ja"]  %></td>
 			<td><%= link_to "Löschen", entrance_path(e.id), :method => 'delete' if signed_in? %></td>
 		</tr>
-
+		<%end%>
 		<%end%>
 		</tbody>
 </table>

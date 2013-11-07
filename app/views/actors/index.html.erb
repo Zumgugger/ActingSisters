@@ -1,17 +1,16 @@
 <div class="maindiv">
 	<h1>Alle SchauspielerInnen des Musicals</h1>
-	<p>Klicken, um Infos zu erhalten</p>
-</div>
 
-<div class="maindiv">
 	<table id="actors">
   		<thead>
   			<th><%= link_to "Vorname"%></th>
   			<th><%= link_to "Nachname"%></th>
   			<th><%= link_to "Rollen"%></th>
   			<th><%= link_to "Klasse"%></th>
+  			<%if signed_in?%><th>Löschen</th><%end%>
 		</thead>
 		
+		<% unless signed_in? %>
   		<tbody>
   		<% @actors.each do |actor|%>
 		<tr>
@@ -37,11 +36,42 @@
 		</tr>
 		<%end%>
 		</tbody>
+		<%end%>
+		
+		<%if signed_in?%>
+		<tbody>
+  		<% @actors.each do |actor|%>
+		<tr>
+			<td>
+				<%= best_in_place actor, :name%>
+     		</td>
+     		<td>
+				<%= best_in_place actor, :last_name%>
+     		</td>
+			<td>
+				<% actor.allocations.each do |a|%>
+				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_path(a.role.id)%>
+				<br />
+				<%end%>
+			</td>
+			<td>
+				<%= best_in_place actor, :schoolclass%>				
+			</td>
+			<td>
+				<%= link_to "Löschen", actor_path(actor.id), :method => 'delete' if signed_in? %>
+			</td>
+		</tr>
+		<%end%>
+		
+		</tbody>
+		<%end%>
 	</table>
+	<%= link_to "Neu", actors_path, :method => 'post' if signed_in?%>
 </div>
 
 <%if signed_in? %>
 <div id="import" class="maindiv">
+	
 	<h2>
 		Schauspieler aus Excel Datei importieren
 	</h2>

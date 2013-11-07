@@ -2,21 +2,16 @@
 	<h1>Rolle <%=@role.name%></h1>
 </div>
 
-<% @casts.each do |cast|%>
+
 <div class="maindiv">
+<% @casts.each do |cast|%>
 	<h2>Besetzung <%= cast.name %></h2>
-	<p>
 		<% @role.allocations.each do |a| %>
-			<% actor =  a.actor%>
-			<%if actor%>
-			<%= link_to actor.name, actor_path(actor.id) if a.cast.name == cast.name %>
-			<%else%>
-			<%="Noch keine Zuteilung"%>
+			<%if a.actor%><%= link_to a.actor.name, actor_path(a.actor_id) if a.cast.name == cast.name %><%else%>-<%end%>
 			<%end%>
-		<%end%>
-	</p>
-</div>
 <%end%>
+</div>
+
 
 <div class="maindiv">
 	<h2> Bei folgenden Szenen auf der Bühne </h2>

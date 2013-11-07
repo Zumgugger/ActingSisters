@@ -1,4 +1,6 @@
 <div class="maindiv">
+
+<div class='leftdiv'>
 	<h1>		
 		<%=link_to "<", scene_path(@scene.id - 1) if @scene.id > 1%>
 		Szene <%= @scene.number%> 
@@ -12,14 +14,13 @@
 		    <%= @scene.scenery %>
 		<%end%>
 	</h2>
-</div>
 
-<div class="maindiv">
 	<h2>Rollen auf der Bühne</h2>
 	<% @scene.entrances.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) %>
 		<%= entrance.description %><br/>
 	<%end%>
+	
 	<h2>Rollen mit Text</h2>
 	<% @scene.entrances.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.speaking?%><br />
@@ -28,6 +29,10 @@
 	<% @scene.entrances.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.singing?%><br />
 	<%end%>
+</div>
+
+<div class='rightdiv'>
+	
 </div>
 
 
