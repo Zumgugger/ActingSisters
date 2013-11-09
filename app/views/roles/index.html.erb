@@ -43,7 +43,7 @@
 			<%end%>
 		</td>
 		<td>
-			<%if r.category_id%>
+			<%if defined?(r.category.name) %>
 			<%= r.category.name %>
 			<%end%>
 		</td>
