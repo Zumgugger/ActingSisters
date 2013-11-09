@@ -2,7 +2,7 @@ class ScenesController < ApplicationController
   before_action :set_scene, only: [:show, :update]
   def index
     @columns = Scene.column_names[0..-3]
-    @scenes = Scene.all
+    @scenes = Scene.order(:number)
     @list = []
     @scenes.each do |s|
       @list << s.number
@@ -60,7 +60,7 @@ private
     end
     
     def scene_params
-      params.require(:scene).permit(:scenery)
+      params.require(:scene).permit(:scenery, :description, :summary, :text, :mood)
     end
     
 end #class

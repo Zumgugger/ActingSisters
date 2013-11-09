@@ -10,13 +10,15 @@
   			<%if signed_in?%><th>Löschen</th><%end%>
 		</thead>
 		
-		<% unless signed_in? %>
   		<tbody>
   		<% @actors.each do |actor|%>
 		<tr>
 			<td>
 				<%= link_to actor_path(actor.id) do  %>
+				<%if actor.name%>
      			<%= actor.name %>
+     			<%else%> Neu erstellter Schauspieler
+     			<%end%>
      			<%end%>
      		</td>
      		<td>
@@ -33,38 +35,14 @@
 			<td>
 				<%= actor.schoolclass%>				
 			</td>
+			<%if signed_in?%>
+			<td>
+				<%= link_to "Löschen", actor_path(actor.id), :method => 'delete' if signed_in?%>
+			</td>
+			<%end%>
 		</tr>
 		<%end%>
 		</tbody>
-		<%end%>
-		
-		<%if signed_in?%>
-		<tbody>
-  		<% @actors.each do |actor|%>
-		<tr>
-			<td>
-				<%= best_in_place actor, :name%>
-     		</td>
-     		<td>
-				<%= best_in_place actor, :last_name%>
-     		</td>
-			<td>
-				<% actor.allocations.each do |a|%>
-				<%= link_to "#{a.role.name} in der Besetzung #{a.cast.name}", role_path(a.role.id)%>
-				<br />
-				<%end%>
-			</td>
-			<td>
-				<%= best_in_place actor, :schoolclass%>				
-			</td>
-			<td>
-				<%= link_to "Löschen", actor_path(actor.id), :method => 'delete' if signed_in? %>
-			</td>
-		</tr>
-		<%end%>
-		
-		</tbody>
-		<%end%>
 	</table>
 	<%= link_to "Neu", actors_path, :method => 'post' if signed_in?%>
 </div>
@@ -75,7 +53,6 @@
 	<h2>
 		Schauspieler aus Excel Datei importieren
 	</h2>
-	<p>Spalten: <%= @columns%></p>
 	<%= form_tag actors_import_path, multipart: true do %>
 	  <%= file_field_tag :file%>
 	  <%= submit_tag "Importieren"%>

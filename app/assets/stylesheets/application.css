@@ -63,14 +63,15 @@ footer {
 }
 
 .leftdiv {
-	width: 420px;
+	width: 350px;
 	display: inline;
+
 }
 .rightdiv {
-	width:750px;
-	margin-top: 20px;
+	width:800px;
 	float:right;
 	clear:right;
+
 }
 
 
@@ -82,6 +83,7 @@ a {
 	display: inline;
 	float:none;
 }
+
 
 table, th, td {
 	border-collapse: collapse;
@@ -98,3 +100,15 @@ a:hover, div .linkdiv:hover {
 	border-radius: 10px;
 
 }
+
+textarea {
+	!important max-width:800px;
+	width: 800px;
+
+}
+
+
+span {
+	max-width:800px;
+}
+

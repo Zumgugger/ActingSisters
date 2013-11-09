@@ -9,51 +9,54 @@
   		<th><%= link_to "Szenen auf der Bühne" %></th>
   		<th><%= link_to "gesprochene Szenen" %></th>
   		<th><%= link_to "Kategorie"%></th>
+  		<%if signed_in?%><th>Löschen</th><%end%>
   	</thead>
   	
-  	<% unless signed_in? %>	
   	<tbody>  	
   	<% @roles.each do |r|%>
 	<tr>
-		<td><%= link_to r.name, role_path(r.id)%></td>
-		<td><% r.scenes.each do |s|%>
-			<%= link_to s.name, scene_path(s.id)%>
-			<%end%>
-		</td>
-		<td><% r.entrances.each do |e|%>
-			<%= link_to e.scene.number, scene_path(e.scene.id) if e.speaking?%>
+		<td>
+			<% if r.name%>
+			<%= link_to r.name, role_path(r.id)%>
+			<%else%>
+			Neu erstellte Rolle
 			<%end%>
 		</td>
 		<td>
-			<%= r.category.name %>
-		</td>
-	</tr>
-	<%end%>
-	</tbody>
-	<%end%>
-	
-	<%if signed_in?%>
-	<tbody>  	
-  	<% @roles.each do |r|%>
-	<tr>
-		<td><%= best_in_place r, :name%></td>
-		<td><% r.scenes.each do |s|%>
+			<% count = 0%>
+			<% r.scenes.sort_by{ |name| name[:number]}.each do |s|%>
 			<%= link_to s.name, scene_path(s.id)%>
+			<%count += 1%>
+			<%if  [7, 14, 21, 28].include?(count)%>
+			<br />
 			<%end%>
-		</td>
-		<td><% r.entrances.each do |e|%>
-			<%= link_to e.scene.number, scene_path(e.scene.id) if e.speaking?%>
-			<%end%>
-		</td>
-		<td>
-			<%= best_in_place_if signed_in?, r, :category_id, :type => :select, :collection => @categories %>
-		</td>
-	</tr>
-	<%end%>
-	</tbody>
-	<%end%>
 
+			<%end%>
+		</td>
+		<td><% r.entrances.sort_by{ |scene| scene[:scene_id]}.each do |e|%>			
+			<%= link_to e.scene.name, scene_path(e.scene.id) if e.speaking?%>
+
+			<%count += 1%>
+			<%if  [7, 14, 21, 28].include?(count)%>
+			<br />
+			<%end%>
+			<%end%>
+		</td>
+		<td>
+			<%if r.category_id%>
+			<%= r.category.name %>
+			<%end%>
+		</td>
+		<%if signed_in?%>
+		<td>
+				<%= link_to "Löschen", role_path(r.id), :method => 'delete' if signed_in?%>
+		</td>
+		<%end%>
+	</tr>
+	<%end%>
+	</tbody>
 </table>
+<%= link_to "Neu", roles_path, :method => 'post' if signed_in?%>
 </div>
 
 <%if signed_in?%>
@@ -61,7 +64,6 @@
 	<h2>
 		Rollen aus Excel Datei importieren
 	</h2>
-	<p>Spalten: <%= @columns%></p>
 	<%= form_tag roles_import_path, multipart: true do %>
 	  <%= file_field_tag :file%>
 	  <%= submit_tag "Importieren"%>

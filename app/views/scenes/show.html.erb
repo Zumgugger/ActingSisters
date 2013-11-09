@@ -7,13 +7,13 @@
 		<%=link_to ">", scene_path(@scene.id + 1) if @scene.id < @end%>
 	</h1>
 	
-	<h2>Bühnenszenario 
+	<h2>Bühnenszenario </h2>
 		<% if signed_in? %>
 			<%= best_in_place @scene, :scenery, type: :select, collection: @collection, :path => scene_path(@scene.id)%>
 		<%else%>
 		    <%= @scene.scenery %>
 		<%end%>
-	</h2>
+	
 
 	<h2>Rollen auf der Bühne</h2>
 	<% @scene.entrances.each do |entrance| %>
@@ -32,7 +32,14 @@
 </div>
 
 <div class='rightdiv'>
-	
+	<div class="limited"><h2>Beschreibung</h2>
+	<%= best_in_place_if signed_in?, @scene, :description, :type => :textarea, :classes => "gross", :display_with => :simple_format%></div>
+	<div class="limited"><h2>Zusammenfassung</h2>
+	<%= best_in_place_if signed_in?, @scene, :summary, :type => :textarea, :classes => "gross", :display_with => :simple_format%></div>
+	<div class="limited"><h2>Stimmung</h2>
+	<%= best_in_place_if signed_in?, @scene, :mood, :type => :textarea, :classes => "gross", :display_with => :simple_format%></div>
+	<div class="limited"><h2>Text</h2>
+	<%= best_in_place_if signed_in?, @scene, :text, :type => :textarea, :classes => "gross", :display_with => :simple_format%></div>
 </div>
 
 

@@ -2,16 +2,22 @@
 #
 # Table name: scenes
 #
-#  id         :integer          not null, primary key
-#  number     :string(255)
-#  scenery    :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  number      :string(255)
+#  scenery     :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  summary     :text
+#  text        :text
+#  mood        :text
 #
 
 class Scene < ActiveRecord::Base
   has_many :entrances
   has_many :roles, :through => :entrances
+  
+  validates :number, :uniqueness => true
   
     def name
     self.number
@@ -25,7 +31,7 @@ class Scene < ActiveRecord::Base
          row = Hash[[header, spreadsheet.row(r)].transpose]
 
         scene = find_by_id(row["id"]) || new
-        scene.attributes = row.to_hash.slice("id", "number", "scenery")
+        scene.attributes = row.to_hash.slice("id", "number", "scenery", "summary")
 
         scene.save!
       end
@@ -39,4 +45,6 @@ class Scene < ActiveRecord::Base
       else raise "Unknown file type: #{file.original_filename}"
       end
     end
+    
+
 end

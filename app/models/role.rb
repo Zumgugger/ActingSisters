@@ -16,6 +16,9 @@ class Role < ActiveRecord::Base
   has_many :actors, :through => :allocations
   belongs_to :category
   
+ 
+  validates :id, :uniqueness => true
+  
   
   def self.import(file)
       require 'roo'

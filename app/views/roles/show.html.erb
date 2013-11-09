@@ -1,9 +1,17 @@
 <div class = "maindiv">
-	<h1>Rolle <%=@role.name%></h1>
+	<h1>Rolle <%= best_in_place_if signed_in?, @role, :name %></h1>
+	<h2>
+		<% if signed_in?%>
+		<%= best_in_place @role, :category_id, :type => :select, :collection => @categories %>
+		<%else%>
+		<%= @role.category.name %>
+		<%end%>
 </div>
 
 
 <div class="maindiv">
+	
+
 <% @casts.each do |cast|%>
 	<h2>Besetzung <%= cast.name %></h2>
 		<% @role.allocations.each do |a| %>

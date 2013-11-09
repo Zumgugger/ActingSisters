@@ -1,5 +1,16 @@
 <div class="maindiv">
-	<h1>Schauspieler <%=@actor.name%></h1>
+	<h1>SchauspielerIn 
+		<%=best_in_place_if signed_in?, @actor, :name%> <%= best_in_place_if signed_in?, @actor, :last_name%>
+	</h1>
+	<p>Klase <%= best_in_place_if signed_in?, @actor, :schoolclass%></p>
+	<%if signed_in? %>
+		<h2>
+			Bemerkungen
+		</h2>
+		<%= best_in_place_if signed_in?, @actor, :description, :type => :textarea%>
+	<%end%>
+	
+		
 </div>
 
 <div class="maindiv">

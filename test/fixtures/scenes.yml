@@ -2,11 +2,15 @@
 #
 # Table name: scenes
 #
-#  id         :integer          not null, primary key
-#  number     :string(255)
-#  scenery    :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  number      :string(255)
+#  scenery     :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#  summary     :text
+#  text        :text
+#  mood        :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

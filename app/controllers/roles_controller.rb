@@ -3,15 +3,13 @@ class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
       
   def index
-    @columns = "id, name, speaking?, singing?"
     @roles = Role.order(:name)
     @scenes = Scene.all
-    @title = "Rollen"
-    make_collections
   end #index
   
   def show
     @casts = Cast.all
+    make_collections
   end #show
   
   def new

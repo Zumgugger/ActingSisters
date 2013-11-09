@@ -2,12 +2,12 @@ class ActorsController < ApplicationController
  before_action :set_actor, only: [:show, :edit, :update, :destroy]
       
   def index
-    @columns = Actor.column_names[0..-3]
     @actors = Actor.order(:name)
   end #index
 
 
   def show
+    
   end #show
   
   def new
@@ -70,7 +70,7 @@ private
     end #set_actor
     
     def actor_params
-      params.require(:actor).permit(:name, :last_name, :schoolclass)
+      params.require(:actor).permit(:name, :last_name, :schoolclass, :description)
     end
 
 end #class

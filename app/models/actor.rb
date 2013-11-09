@@ -16,6 +16,9 @@ class Actor < ActiveRecord::Base
   has_many :roles, :through => :allocations
   
   
+  
+ validates :id, :uniqueness => true
+  
     def self.import(file)
       require 'roo'
       spreadsheet =  open_spreadsheet(file)
