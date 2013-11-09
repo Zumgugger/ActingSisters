@@ -10,7 +10,7 @@
 #
 
 class Role < ActiveRecord::Base
-  has_many :entrances
+  has_many :entrances, dependent: :destroy
   has_many :scenes, :through => :entrances
   has_many :allocations
   has_many :actors, :through => :allocations
