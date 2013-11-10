@@ -7,6 +7,9 @@
 
     </head>
     <body>
+    	<a href="./.."><h1>
+    	Back
+    	</h1></a>
 		<h1>Git</h1>
 			<ol>
 				<li>Repository in github anlegen (bunticklicki mit Maus. mit Shell??) mit Name "name"</li>
@@ -66,7 +69,7 @@
 			<ol>
 				<li> PGPASSWORD=irgendeinpasswort pg_dump -Fc --no-acl --no-owner -h localhost -U irgendeinuser irgendeinedatenbank > mydb.dump #macht aus der Datenbank "irgendeinedatenbank ein File mydb.dump im Verzeichnis</li>
 				<li>Dann muss die Datei auf einem Server im Web zur Verfügung gestellt werden zB. uploaden auf  http://www.zumgugger.ch/dateien/mydb.dump</li>
-				<li>heroku pgbackups:restore 'http://www.zumgugger.ch/dateien/mydb.dump</li>
+				<li>heroku pgbackups:restore HEROKU_POSTGRESQL_BROWN_URL 'http://www.zumgugger.ch/dateien/mydb.dump</li>
 			</ol>
 		<h1>Setup Postgresql</h1>
 			<ol>
