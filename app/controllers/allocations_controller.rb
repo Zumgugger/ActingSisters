@@ -87,7 +87,7 @@ class AllocationsController < ApplicationController
         @roles << [r.id, r.name]
       end
       actors.each do |a|
-        @actors << [a. "#{a.name} #{a.last_name}"] 
+        @actors << [a.id, "#{a.name} #{a.last_name}"] 
       end
       casts.each do |c|
         @casts << [c.id, c.name]
