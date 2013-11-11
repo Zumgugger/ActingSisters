@@ -16,7 +16,7 @@
   	<% @roles.each do |r|%>
 	<tr>
 		<td>
-			<%= link_to_role_path(r.id) do %>
+			<%= link_to role_path(r.id) do %>
 			<% if r.name %>
 			<%= r.name %>
 			<%else%>
