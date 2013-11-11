@@ -16,10 +16,12 @@
   	<% @roles.each do |r|%>
 	<tr>
 		<td>
-			<% if r.name%>
-			<%= link_to r.name, role_path(r.id)%>
+			<%= link_to_role_path(r.id) do %>
+			<% if r.name %>
+			<%= r.name %>
 			<%else%>
 			Neu erstellte Rolle
+			<%end%>
 			<%end%>
 		</td>
 		<td>
