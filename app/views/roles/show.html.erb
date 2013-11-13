@@ -23,12 +23,13 @@
 
 <div class="maindiv">
 	<h2> Bei folgenden Szenen auf der Bühne </h2>
-	<% @role.entrances.each do |e| %>
+	<% @role.entrances.sort_by{ |name| name[:scene_id]}.each do |e| %>
 	<%= link_to e.scene.number, scene_path(e.scene.id) %>
-
+    <%end%>
 
 
 	<h2> In folgenden Szenen sprechend </h2>
+	<% @role.entrances.sort_by{ |name| name[:scene_id]}.each do |e| %>
 	<%= link_to e.scene.number, scene_path(e.scene.id) if e.speaking? %>
 	<%end%>
 	

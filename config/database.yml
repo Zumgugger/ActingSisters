@@ -8,6 +8,7 @@ development:
   encoding: unicode
   database: actingsisters_development
   host: localhost
+  port: 5433
   pool: 5
   username: actingsisters
   password: xene9u9eli
