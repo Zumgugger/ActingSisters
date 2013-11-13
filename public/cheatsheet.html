@@ -69,7 +69,7 @@
 		<h2>Lokal > Heroku</h2>
 			<ol>
 				<li> PGPASSWORD=irgendeinpasswort pg_dump -Fc --no-acl --no-owner -h localhost -U irgendeinuser irgendeinedatenbank > mydb.dump #macht aus der Datenbank "irgendeinedatenbank ein File mydb.dump im Verzeichnis</li>
-				<li>Dann muss die Datei auf einem Server im Web zur Verfügung gestellt werden zB. auf Dropbox. </li>
+				<li>Dann muss die Datei auf einem Server im Web zur Verfügung gestellt werden zB. auf Dropbox. Sicherstellen, dass die Datei freigegeben ist! </li>
 				<li>heroku pgbackups:restore HEROKU_POSTGRESQL_BROWN_URL 'https://dropbox-komplizierte/downloadadresse'  #die Adresse per Rechtsklick und link speichern kopieren und mit singlequotes in die eingabe kopieren.</li>
 			</ol>
 		<h1>Setup Postgresql</h1>
