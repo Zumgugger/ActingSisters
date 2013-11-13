@@ -1,5 +1,7 @@
 ActingSisters::Application.routes.draw do
 
+  resources :notes
+
   root 'main#index'
 
   

@@ -5,7 +5,7 @@ class EntrancesController < ApplicationController
   # GET /entrances
 
   def index
-    @entrances = Entrance.all
+    @entrances = Entrance.order(:scene_id)
     make_collections
     @entrance = Entrance.new
   end
@@ -72,7 +72,7 @@ class EntrancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entrance_params
-      params.require(:entrance).permit(:role_id, :scene_id, :speaking?, :singing?, :role)
+      params.require(:entrance).permit(:role_id, :scene_id, :speaking?, :singing?, :role, :description)
     end
     
     def make_collections
