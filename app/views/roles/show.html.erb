@@ -15,7 +15,7 @@
 <% @casts.each do |cast|%>
 	<h2>Besetzung <%= cast.name %></h2>
 		<% @role.allocations.each do |a| %>
-			<%if a.actor%><%= link_to a.actor.name, actor_path(a.actor_id) if a.cast.name == cast.name %><%else%>-<%end%>
+			<%if a.actor%><%= link_to a.actor.name + " " + a.actor.last_name, actor_path(a.actor_id) if a.cast.name == cast.name %><%else%>-<%end%>
 			<%end%>
 <%end%>
 </div>

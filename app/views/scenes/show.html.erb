@@ -16,17 +16,17 @@
 	
 
 	<h2>Rollen auf der Bühne</h2>
-	<% @scene.entrances.each do |entrance| %>
+	<% @scene.entrances.sort_by{|entrance| entrance.role.name}.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) %>
-		<%= entrance.description %><br/>
+		<%= best_in_place_if signed_in?, entrance, :description%><br/>
 	<%end%>
 	
 	<h2>Rollen mit Text</h2>
-	<% @scene.entrances.each do |entrance| %>
+	<% @scene.entrances.sort_by{|entrance| entrance.role.name}.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.speaking?%><br />
 	<%end%>
 	<h2>Rollen mit Gesang</h2>
-	<% @scene.entrances.each do |entrance| %>
+	<% @scene.entrances.sort_by{|entrance| entrance.role.name}.each do |entrance| %>
 		<%= link_to entrance.role.name, role_path(entrance.role.id) if entrance.singing?%><br />
 	<%end%>
 </div>
