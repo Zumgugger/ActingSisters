@@ -35,7 +35,7 @@
 		<tr>
 			<td><%if a.cast%><%= a.cast.name ||= "-" %><%else%>-<%end%></td>
 			<td><%if a.role%><%= link_to a.role.name, role_path(a.role_id)%><%else%>-<%end%></td>
-			<td><%if a.actor%><%= link_to a.actor.name, actor_path(a.actor_id)%><%else%>-<%end%></td>
+			<td><%if a.actor%><%= link_to "#{a.actor.name} #{a.actor.last_name}", actor_path(a.actor_id)%><%else%>-<%end%></td>
 		</tr>
 
 
